@@ -19,6 +19,7 @@ NOTA: El proyecto cuenta con dos partes, el backend (Carpeta principal "PROYECTO
 esto es importante, pues dependiendo de la carpeta se hacen diferentes instalaciones.
 
 Paso 3: En el BACKEND (carpeta principal) instalar con el código "npm i" los siguientes módulos:
+(ESTO PUEDE SER REDUCIDO A COLOCAR EL COMANDO "npm i" dentro de la carpeta raiz (/))
     + npm i mongoose
     + npm i cookie-parser
     + npm i morgan
@@ -29,7 +30,10 @@ Paso 3: En el BACKEND (carpeta principal) instalar con el código "npm i" los si
     + npm i nodemon
     + npm i axios
 
-Paso 4: En el FRONTEND (carpeta ASHA) instalar con el código "npm i" 
+
+Paso 4: En el FRONTEND (carpeta ASHA) instalar con el código "npm i"
+(ESTO PUEDE SER REDUCIDO A COLOCAR EL COMANDO "npm i" dentro de la carpeta /ASHA)
+
     + npm i -D tailwindcss postcss autofixer
     + npx tailwind init -p
     + npm i react-router-dom
