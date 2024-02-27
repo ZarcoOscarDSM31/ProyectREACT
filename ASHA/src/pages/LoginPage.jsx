@@ -1,15 +1,17 @@
 import { useAuth } from "../context/authContext";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Card, Message, Button, Input, Label } from "../components/ui";
 import { loginSchema } from "../schemas/auth";
+import { LoginContext } from "../context/LoginContext/LoginContext";
 
 export function LoginPage() {
   const {
     register,
     handleSubmit,
+    
     formState: { errors },
   } = useForm({
     resolver: zodResolver(loginSchema),
@@ -17,13 +19,30 @@ export function LoginPage() {
   const { signin, errors: loginErrors, isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
-  const onSubmit = (data) => signin(data);
+  const {singIn}=useContext(LoginContext);
+   const onSubmit = (data,) => {
+    signin(data);
+  // singIn(data)
+  console.log({data}, register)
+  }
+  
+   
+  //  console.log('Fncion',Signin)
+  // const onLogin=(data)=>{
+  //   singIn(data)
+  // }
+     
 
+
+  //NOTIFICAIONES
   useEffect(() => {
     if (isAuthenticated) {
       navigate("/tasks");
     }
   }, [isAuthenticated]);
+  // const onLogin=(data)=>{
+  //   Signin(data)
+  // }
 
   return (
     <div className="h-[calc(100vh-100px)] flex items-center justify-center">
@@ -33,7 +52,11 @@ export function LoginPage() {
         ))}
         <h1 className="text-2xl font-bold">Iniciar Sesión</h1>
 
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)
+        
+      
+        
+        }>
           <Label htmlFor="email">Correo:</Label>
           <Input
             label="Write your email"

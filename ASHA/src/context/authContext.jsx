@@ -17,6 +17,8 @@ export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [errors, setErrors] = useState([]);
   const [loading, setLoading] = useState(true);
+  const checkToken =()=>{
+  }
 
   // clear errors after 5 seconds
   useEffect(() => {
@@ -31,6 +33,7 @@ export const AuthProvider = ({ children }) => {
   const signup = async (user) => {
     try {
       const res = await registerRequest(user);
+      console.log(res);
       handleAuthResponse(res);
     } catch (error) {
       handleAuthError(error);
@@ -40,6 +43,7 @@ export const AuthProvider = ({ children }) => {
   const signin = async (user) => {
     try {
       const res = await loginRequest(user);
+      console.log(res)
       handleAuthResponse(res);
     } catch (error) {
       handleAuthError(error);
